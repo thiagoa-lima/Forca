@@ -1,3 +1,4 @@
+import random
 import time
 
 def jogar():
@@ -40,14 +41,13 @@ def jogar():
             print("******************************************************")
             print(" ")
 
-
     # ------------------------------------------------------------
     # ---------------------- Início do jogo ----------------------
     # ------------------------------------------------------------
 
     tentativas = 0
     chances = chances
-    palavra_secreta = "BANANA"
+    palavra_secreta = carrega_palavra_secreta()
     situacao_atual = ["_"] * len(palavra_secreta)
     letras_escolhidas = []
 
@@ -95,8 +95,6 @@ def jogar():
             tentativas += 1
             print(f"Você errou [{tentativas}] vezes e ainda tem mais [{chances - tentativas}] chances")
 
-
-
         print("")
         print("As letras que você já tentou foram:")
         print("[ {} ]".format(" ".join(letras_escolhidas).strip()))
@@ -119,22 +117,17 @@ def jogar():
     while jogar_novamente not in ["S", "N"]:
         jogar_novamente = str(input("Digite 'S' pra sim e 'N' para não: ")).upper()
         if jogar_novamente == "S":
-            print("Ok, vamos recomeçar.")
             jogar()
         elif jogar_novamente == "N":
-            print(" ")
+            print("")
             print("******************************************************")
             print("******************** FIM DE JOGO *********************")
             print("******************************************************")
             print(" ")
             pass
         else:
-            print(" ")
-            print("Opção ínvalida. Vamos começar novamente?")
-            print(" ")
-
-
-
+            print("")
+            print("Opção ínvalida.")
 
 def voce_ganhou():
     print("|       Parabéns, você ganhou!      |")
@@ -152,7 +145,6 @@ def voce_ganhou():
 
 def voce_perdeu(palavra_secreta):
     print("Que pena, você foi ENFORCADO")
-    print(f"A palavra secreta era {palavra_secreta}")
     print("         ______________          ")
     print("        /              \         ")
     print("       /                \        ")
@@ -169,6 +161,26 @@ def voce_perdeu(palavra_secreta):
     print("        \_            _/         ")
     print("          \_        _/           ")
     print("            \______/             ")
+
+    print(f"A palavra secreta era {palavra_secreta}")
+
+def carrega_palavra_secreta():
+    arquivo = open("frutas.txt", "r")
+
+    palavras = []
+
+    for linha in arquivo:
+        linha = linha.strip()
+        palavras.append(linha)
+
+    arquivo.close()
+
+    sorteio = random.randrange(0, len(palavras))
+    palavra_secreta = palavras[sorteio].upper()
+
+    return palavra_secreta
+
+
 
 
 if (__name__ == "__main__"):

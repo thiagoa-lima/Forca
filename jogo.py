@@ -45,14 +45,14 @@ def jogar():
     # ---------------------- Início do jogo ----------------------
     # ------------------------------------------------------------
 
-    acertou = False
     tentativas = 0
     chances = chances
     palavra_secreta = "BANANA"
     situacao_atual = ["_"] * len(palavra_secreta)
     letras_escolhidas = []
 
-    time.sleep(1)
+    time.sleep(.5)
+    print("")
     print(f"Muito bem!! ")
     print(f"Agora você tem [{chances}] chances para concluir o jogo.")
     print("")
@@ -112,6 +112,29 @@ def jogar():
     else:
         voce_ganhou()
 
+    print("")
+    print("Você quer jogar novamente?")
+
+    jogar_novamente = 0
+    while jogar_novamente not in ["S", "N"]:
+        jogar_novamente = str(input("Digite 'S' pra sim e 'N' para não: ")).upper()
+        if jogar_novamente == "S":
+            print("Ok, vamos recomeçar.")
+            jogar()
+        elif jogar_novamente == "N":
+            print(" ")
+            print("******************************************************")
+            print("******************** FIM DE JOGO *********************")
+            print("******************************************************")
+            print(" ")
+            pass
+        else:
+            print(" ")
+            print("Opção ínvalida. Vamos começar novamente?")
+            print(" ")
+
+
+
 
 def voce_ganhou():
     print("|       Parabéns, você ganhou!      |")
@@ -125,6 +148,7 @@ def voce_ganhou():
     print("|                ) (                |")
     print("|              _.' '._              |")
     print("|             '-------'             |")
+
 
 def voce_perdeu(palavra_secreta):
     print("Que pena, você foi ENFORCADO")

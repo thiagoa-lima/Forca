@@ -59,8 +59,7 @@ def jogar():
     print("******************************************************")
     print(f"**** VAMOS COMEÇAR? A palavra abaixo tem {len(situacao_atual)} letras ****")
     print("******************************************************")
-    print("")
-    print("[ {} ]".format(" ".join(situacao_atual).strip()))
+
     print("")
 
     # ------------------------------------------------------------
@@ -68,6 +67,10 @@ def jogar():
     # ------------------------------------------------------------
 
     while tentativas < chances and "_" in situacao_atual:
+        print("Você escolhou: {")
+        print("A palavra secreta é: \n"
+              "[ {} ]".format(" ".join(situacao_atual).strip()))
+        print("")
         print("******************************************************")
         letra = str(input("Qual letra você gostaria de tentar? ")).upper()
         print("******************************************************")
@@ -81,24 +84,22 @@ def jogar():
 
         if letra in palavra_secreta:
             print(f"PARABÉNS, VOCÊ ACERTOU A LETRA [{letra}]!")
-            print("")
             for i in range(len(palavra_secreta)):
                 if letra == palavra_secreta[i]:
                     situacao_atual[i] = letra
-            print("A palavra secreta é: [ {} ]".format(" ".join(situacao_atual).strip()))
 
         else:
-            print(f"QUE PENA, VOCÊ ERROU A LETRA [{letra}]!")
-            print("")
-            print("[ {} ]".format(" ".join(situacao_atual).strip()))
             print("")
             tentativas += 1
-            print(f"Você errou [{tentativas}] vezes e ainda tem mais [{chances - tentativas}] chances")
-
+            if chances == 10:
+                desenho_10_tentativas(tentativas)
+            elif chances == 7:
+                desenho_07_tentativas(tentativas)
+            elif chances == 4:
+                desenho_04_tentativas(tentativas)
         print("")
         print("As letras que você já tentou foram:")
         print("[ {} ]".format(" ".join(letras_escolhidas).strip()))
-
         print("")
 
     # ------------------------------------------------------------
@@ -176,16 +177,19 @@ def carrega_palavra_secreta():
         print(" ")
         print("[ 1 ] FRUTAS")
         print("[ 2 ] PAÍSES")
+        print("[ 3 ] ANIMAIS")
         print(" ")
 
         tipo_palavra = int(input("Qual você escolhe? "))
-
         if tipo_palavra == 1:
             print("Você escolheu FRUTAS.")
             arquivo = open("frutas.txt", "r")
         elif tipo_palavra == 2:
             print("Você escolheu PAÍSES.")
             arquivo = open("paises.txt", "r")
+        elif tipo_palavra == 3:
+            print("Você escolheu ANIMAIS.")
+            arquivo = open("animais.txt", "r")
         else:
             print("Opção inválida. Vamos começar novamente.")
             continue
@@ -201,6 +205,190 @@ def carrega_palavra_secreta():
         palavra_secreta = palavras[sorteio].upper()
 
         return palavra_secreta
+
+
+def desenho_10_tentativas(tentativas):
+    if tentativas == 1:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |        \n'
+              '  |        \n'
+              '  |        \n'
+              '  |        \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 2:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |        \n'
+              '  |        \n'
+              '  |        \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 3:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |        \n'
+              '  |        \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 4:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 5:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |     |  \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 6:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|  \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 7:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '__|__      \n')
+
+    elif tentativas == 8:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '  |    /   \n'
+              '__|__      \n')
+
+    elif tentativas == 9:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '  |    / \ \n'
+              '__|__      \n')
+
+def desenho_07_tentativas(tentativas):
+
+    if tentativas == 1:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |        \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 2:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |     |  \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 3:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|  \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 4:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 5:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '  |    /   \n'
+              '__|__      \n')
+
+    elif tentativas == 6:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '  |    / \ \n'
+              '__|__      \n')
+
+def desenho_04_tentativas(tentativas):
+
+    if tentativas == 1:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '  |        \n'
+              '__|__      \n')
+
+    elif tentativas == 2:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '  |    /   \n'
+              '__|__      \n')
+
+    elif tentativas == 3:
+        print('   _____   \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     |  \n'
+              '  |     o  \n'
+              '  |    /|\ \n'
+              '  |    / \ \n'
+              '__|__      \n')
 
 
 

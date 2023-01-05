@@ -20,9 +20,9 @@ def jogar():
     while nivel not in [1, 2, 3]:
         print("Você tem a opção de escolher os níveis conforme abaixo")
         print(" ")
-        print("[ 1 ] Nível fácil - você terá 10 chances")
-        print("[ 2 ] Nível médio - você terá 7 chances")
-        print("[ 3 ] Nível difícil - você terá 4 chances")
+        print("[ 1 ] NÍVEL FÁCIL - você terá 10 chances")
+        print("[ 2 ] NÍVEL MÉDIO - você terá 7 chances")
+        print("[ 3 ] NIVEL DIFÍCIL - você terá 4 chances")
         print(" ")
 
         nivel = int(input("Qual nível você deseja escolher: "))
@@ -161,24 +161,46 @@ def voce_perdeu(palavra_secreta):
     print("        \_            _/         ")
     print("          \_        _/           ")
     print("            \______/             ")
-
+    print("")
     print(f"A palavra secreta era {palavra_secreta}")
 
 def carrega_palavra_secreta():
-    arquivo = open("frutas.txt", "r")
 
-    palavras = []
 
-    for linha in arquivo:
-        linha = linha.strip()
-        palavras.append(linha)
+    tipo_palavra = 0
+    while tipo_palavra not in [1, 2]:
+        print("")
+        print("******************************************************")
+        print("")
+        print("Escolha a palavra secreta de acordo com as seguintes opcões")
+        print(" ")
+        print("[ 1 ] FRUTAS")
+        print("[ 2 ] PAÍSES")
+        print(" ")
 
-    arquivo.close()
+        tipo_palavra = int(input("Qual você escolhe? "))
 
-    sorteio = random.randrange(0, len(palavras))
-    palavra_secreta = palavras[sorteio].upper()
+        if tipo_palavra == 1:
+            print("Você escolheu FRUTAS.")
+            arquivo = open("frutas.txt", "r")
+        elif tipo_palavra == 2:
+            print("Você escolheu PAÍSES.")
+            arquivo = open("paises.txt", "r")
+        else:
+            print("Opção inválida. Vamos começar novamente.")
+            continue
 
-    return palavra_secreta
+        palavras = []
+        for linha in arquivo:
+            linha = linha.strip()
+            palavras.append(linha)
+
+        arquivo.close()
+
+        sorteio = random.randrange(0, len(palavras))
+        palavra_secreta = palavras[sorteio].upper()
+
+        return palavra_secreta
 
 
 

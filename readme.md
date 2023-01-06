@@ -24,7 +24,7 @@ palavra ou com o término do preenchimento das partes corpóreas do enforcado.
 ### 5) Quer jogar novamente?
   * Quando finaliza por completo, o computador pergunta se o jogador quer jogar mais uma vez
 
-## Status do Projeto
+## Funcionalidades
  - [x] Escolha do nível
  - [x] Escolha da lista de palavras
  - [x] Mensagens de erro e de acerto

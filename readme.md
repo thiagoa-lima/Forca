@@ -1,4 +1,5 @@
 # Jogo da Forca
+Relembre sua infância com o famoso joguinho da forca. 
 
 ## Descrição
 Jogo da Forca é um jogo em que o jogador tem que acertar qual é a palavra proposta, 

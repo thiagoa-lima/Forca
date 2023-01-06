@@ -25,6 +25,9 @@ palavra ou com o término do preenchimento das partes corpóreas do enforcado.
   * Quando finaliza por completo, o computador pergunta se o jogador quer jogar mais uma vez
 
 ## Status do Projeto
-#### Finalizado
+ - [x] Escolha do nível
+ - [x] Escolha da lista de palavras
+ - [x] Mensagens de erro e de acerto
+ - [x] Recomeçar o jogo
 
 

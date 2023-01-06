@@ -17,7 +17,7 @@ palavra ou com o término do preenchimento das partes corpóreas do enforcado.
   *  [ 2 ] PAÍSES
   *  [ 3 ] ANIMAIS
 ### 3) Mensagens durante o jogo
-  * Todas as letras que o jogador tentou ficam registradas e caso tente novamente, o jogo reconhece e nao permite que isso aconteça
+  * Todas as letras que o jogador tentou, ficam registradas e caso tente novamente, o jogo reconhece e nao permite que isso aconteça
   * A medida que o jogador acerta uma letra, a palava secreta é mostrada na tela com todas as letras acertadas
   * A medida que o jogador erra uma letra, uma forca é desenhada mostrando o partes do corpo do boneco
 ### 4) Fim do jogo
